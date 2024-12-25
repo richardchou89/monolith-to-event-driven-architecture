@@ -16,10 +16,15 @@ extra:
   analytics:
     provider: google
     property: G-S9M1J6BX7L
+
+extra_css:
+  - stylesheets/extra.css
+
 nav:
-  - 'Getting Started': index.md
-  - 'Our Goal': goal.md
-  - 'Benefits': benefits.md
+  - Getting Started: index.md
+  - Our Goal: goal.md
+  - Benefits: benefits.md
+  - Tools: tools.md
   - About the author: author.md
   - Cover Art: cover_art.md
   
