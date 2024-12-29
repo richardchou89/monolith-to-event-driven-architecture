@@ -25,6 +25,7 @@ nav:
   - Our Goal: goal.md
   - Benefits: benefits.md
   - Tools: tools.md
+  - Sending messages from Ruby to SNS: ruby_sdk.md
   - About the author: author.md
   - Cover Art: cover_art.md
   
