@@ -18,7 +18,7 @@ arn:aws:sns:us-east-1:123456789012:MyTopic-Staging
 
 Here's an example of provisioning SNS:
 
-``` tf linenums="1" title="production/main.tf"
+``` tf linenums="1" title="production/main.tf" hl_lines="19 21 22"
 terraform {
   backend "s3" {
     bucket         = "dep-terraform-state"
@@ -88,7 +88,7 @@ module "ap-staging" {
 }
 ```
 
-``` tf linenums="1" title="modules/resources/main.tf"
+``` tf linenums="1" title="modules/resources/main.tf" hl_lines="6"
 provider "aws" {
   region = var.aws_region
 }
@@ -105,7 +105,7 @@ resource "aws_sns_topic" "dep_sns" {
 
 1. Use the combination of region and environment to avoid naming conflict
 
-``` tf linenums="1" title="modules/resources/outputs.tf"
+``` tf linenums="1" title="modules/resources/outputs.tf" hl_lines="2"
 output "sns_arn" {
   value = aws_sns_topic.dep_sns.arn # (1)
 }
