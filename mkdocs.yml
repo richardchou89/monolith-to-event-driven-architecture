@@ -3,11 +3,19 @@ theme:
   name: material
   custom_dir: overrides
   features:
+    - content.code.annotate
     - content.code.copy
     - navigation.instant
     - navigation.tracking
     - announce.dismiss
 markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -25,6 +33,7 @@ nav:
   - Our Goal: goal.md
   - Benefits: benefits.md
   - Tools: tools.md
+  - Terraform: terraform.md
   - Sending messages from Ruby to SNS: ruby_sdk.md
   - About the author: author.md
   - Cover Art: cover_art.md
