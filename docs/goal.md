@@ -2,8 +2,8 @@ In this guide, I'm going to demonstrate how to convert part of your monolith to 
 
 ### Logical representation
 
-![EventBridge](images/logical.png "EventBridge")
+![Logical view](images/logical.png "Logical view")
 
 ### Physical representation
 
-![SNS + SQS](images/physical.png "SNS + SQS")
+![Physical view](images/physical.png "Physical view")
