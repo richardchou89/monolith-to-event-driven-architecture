@@ -24,6 +24,10 @@ extra:
   analytics:
     provider: google
     property: G-S9M1J6BX7L
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/richardchou89/
+      name: Richard Chou's LinkedIn
 
 extra_css:
   - stylesheets/extra.css
@@ -37,6 +41,6 @@ nav:
   - Adding a Message Broker: terraform.md
   - Adding Consumers: sam.md
   # - AWS SAM and CloudFormation: cloudformation.md
-  - About the author: author.md
+  - About the Author: author.md
   - Cover Art: cover_art.md
   
