@@ -49,20 +49,13 @@ module "na-prod" {
   aws_region = "us-east-1"
   env        = "prod"
 }
-
-module "eu-prod" {
-  source = "../modules/resources"
-
-  aws_region = "eu-west-2"
-  env        = "prod"
-}
 ```
 
-1. Resources are defined in modules to enhance reusability
+1. Resources are defined in modules for reusability
 2. Passing variables to modules
 3. Passing variables to modules
 
-``` tf linenums="1" title="staging/main.tf"
+``` tf linenums="1" title="staging/main.tf" hl_lines="19 21 22"
 terraform {
   backend "s3" {
     bucket         = "dep-terraform-state"
@@ -81,12 +74,16 @@ terraform {
 }
 
 module "ap-staging" {
-  source = "../modules/resources"
+  source = "../modules/resources" # (1)
 
-  aws_region = "ap-southeast-2"
-  env        = "staging"
+  aws_region = "ap-southeast-2" # (2)
+  env        = "staging" # (3)
 }
 ```
+
+1. Resources are defined in modules for reusability
+2. Passing variables to modules
+3. Passing variables to modules
 
 ``` tf linenums="1" title="modules/resources/main.tf" hl_lines="6"
 provider "aws" {
@@ -111,7 +108,7 @@ output "sns_arn" {
 }
 ```
 
-1. Output SNS arn so it can be reused by other scripts (it is not being used in our example)
+1. Output SNS arn so it can be used by other resources (it is not being used in our example)
 
 ``` tf linenums="1" title="modules/resources/variables.tf"
 variable "aws_region" {
@@ -141,7 +138,7 @@ A common design pattern is:
 
 Trust relationship would look like below:
 
-``` title="IAM role in staging and production account"
+``` json linenums="1" title="IAM role in staging and production account"
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -160,9 +157,9 @@ Trust relationship would look like below:
 }
 ```
 
-A deployment script would look like below:
+A GitHub Actions to run Terraform and deploy SNS would look like below:
 
-``` title=".github/workflows/production.yml"
+``` yaml linenums="1" title=".github/workflows/production.yml" hl_lines="11"
 name: Prod Deployment
 
 on:
@@ -173,7 +170,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod # (1)
     steps:
       - name: Assume Role
         run: |
@@ -197,20 +194,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: SAM Install
-        uses: aws-actions/setup-sam@v2
-        with:
-          use-installer: true
+      - name: Terraform init
+        run: terraform init
 
-      - name: SAM Validate
-        run: |
-          sam validate
+      - name: Terraform validate
+        run: terraform validate
 
-      - name: SAM Build
-        run: |
-          sam build --use-container
+      - name: Terraform plan
+        run: terraform plan
 
-      - name: SAM Deploy
-        run: |
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --parameter-overrides WeatherDataApiKey="${{ secrets.WEATHER_DATA_API_KEY }}"
+      - name: Terraform Deploy
+        run: terraform apply -auto-approve
 ```
+
+1. Use GitHub's environment feature. Each environment can define its own secrets. We can use this to define secrets for staging and secrets for production.
