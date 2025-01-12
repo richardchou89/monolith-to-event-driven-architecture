@@ -27,7 +27,7 @@ extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/richardchou89/
-      name: Richard Chou's profile
+      name: Richard Chou's LinkedIn
 
 extra_css:
   - stylesheets/extra.css

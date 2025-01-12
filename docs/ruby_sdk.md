@@ -1,6 +1,6 @@
 Suppose we want to send an email. We can use following code example to send a SNS message from Ruby:
 
-```
+``` ruby linenums="1"
 gem 'aws-sdk-sns', '~> 1'
 
 sns = Aws::SNS::Client.new(
@@ -45,7 +45,7 @@ The second way is a bit easier to setup. All we need to do is to prepare event.j
 
 We already know the shape of the event:
 
-```
+``` ruby linenums="1"
 message: {
   recipient: 'abc@gmail.com',
   subject: 'Hello',
@@ -54,9 +54,9 @@ message: {
 ```
 and the action of the event (send_email)
 
-All we need to do is to put the message in the body of events/event.json.
+All we need to do is to put the message in the body of `events/event.json`.
 
-```
+``` json linenums="1"
 {
   "Records": [
     {
@@ -90,12 +90,12 @@ All we need to do is to put the message in the body of events/event.json.
 Other attributes like messageId, receiptHandle, attributes, messageAttributes...are not important.
 
 Invoke Lambda with this event:
-```
+``` bash linenums="1"
 sam local invoke -e events/event.json --env-vars env_vars.json
 ```
 And in Lambda we just need to focus on our business logic (sending email).
 
-```
+``` go linenums="1"
 type Email struct {
   recipient string `json:"recipient"`
   subject   string `json:"subject"`
