@@ -2,7 +2,7 @@ We will be using Terraform to provision SNS in staging and production environmen
 
 There are different ways of using Terraform, depending on your AWS setup:
 
-# Single AWS account deployment
+## Single AWS account deployment
 
 If all your environments (staging, production...) are in one account, then when you provision resources, you have to avoid naming conflict. For example:
 
@@ -127,7 +127,7 @@ variable "env" {
 }
 ```
 
-# Multi-AWS accounts deployment
+## Multi-AWS accounts deployment
 
 If your environments are in multiple AWS accounts (for example, staging is in account A, production is in account B), then in general you don't have
 to worry about naming conflict.

@@ -27,9 +27,9 @@ sns.publish({
 
 Some of the settings are stored in env variables so each environment (staging, production...) can have its own setting.
 
-# How to test on local
+## How to test on local
 
-## Method 1: LocalStack
+### Method 1: LocalStack
 
 Set up SNS and SQS using LocalStack. And start Lambda in watch mode.
 
@@ -39,7 +39,7 @@ For setting SNS and SQS please refer to the LocalStack <a target="_blank" href="
 
 ![LocalStack](images/localstack.png "LocalStack")
 
-## Method 2: Invoke Lambda with test events
+### Method 2: Invoke Lambda with test events
 
 The second way is a bit easier to setup. All we need to do is to prepare event.json.
 
