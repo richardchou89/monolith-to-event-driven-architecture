@@ -1,3 +1,5 @@
+![High level view](images/high-level.png "High level view")
+
 Suppose we want to send an email. We can use following code example to send a SNS message from Ruby:
 
 ``` ruby linenums="1"

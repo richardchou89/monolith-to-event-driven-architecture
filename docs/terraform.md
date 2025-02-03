@@ -1,3 +1,5 @@
+![High level view](images/high-level.png "High level view")
+
 We will be using Terraform to provision SNS in staging and production environments.
 
 There are different ways of using Terraform, depending on your AWS setup:
