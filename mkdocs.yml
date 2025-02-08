@@ -40,7 +40,7 @@ nav:
   - Adding a Publisher: ruby_sdk.md
   - Adding a Message Broker: terraform.md
   - Adding Consumers: sam.md
-  # - AWS SAM and CloudFormation: cloudformation.md
+  - Where to go from here: where_to_go_from_here.md
   - About the Author: author.md
   - Cover Art: cover_art.md
   
