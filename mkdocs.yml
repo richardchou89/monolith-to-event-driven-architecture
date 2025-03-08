@@ -32,6 +32,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+repo_url: https://github.com/richardchou89/monolith-to-event-driven-architecture-code
+repo_name: richardchou89/monolith-to-event-driven-architecture-code
+
 nav:
   - Getting Started: index.md
   - Our Goal: goal.md
