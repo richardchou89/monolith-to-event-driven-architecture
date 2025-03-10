@@ -25,9 +25,9 @@ extra:
     provider: google
     property: G-S9M1J6BX7L
   social:
-    - icon: simpleicons/coffee
-      link: https://buymeacoffee.com/richardchou89
-      name: Buy Me A Coffee
+    #- icon: simpleicons/coffee
+    #  link: https://buymeacoffee.com/richardchou89
+    #  name: Buy Me A Coffee
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/richardchou89/
       name: Richard Chou's LinkedIn
